@@ -9,9 +9,6 @@ cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
 include ( lua )
 
-# No default driver to install
-
-# Install  documentation
-install_data ( README )
-install_doc ( doc/ )
-install_test ( tests/ )
+find_package ( SQLite REQUIRED )
+include_directories ( ${SQLITE_INCLUDE_DIRS} src )
+install_lua_module ( sqlite src/ls_sqlite.c src/luasql.c LINK ${SQLITE_LIBRARIES} )
