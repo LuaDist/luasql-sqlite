@@ -11,4 +11,4 @@ include ( lua )
 
 find_package ( SQLite REQUIRED )
 include_directories ( ${SQLITE_INCLUDE_DIRS} src )
-install_lua_module ( sqlite src/ls_sqlite.c src/luasql.c LINK ${SQLITE_LIBRARIES} )
+install_lua_module ( luasql.sqlite src/ls_sqlite.c src/luasql.c LINK ${SQLITE_LIBRARIES} )
